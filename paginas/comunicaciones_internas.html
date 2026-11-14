@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicaciones internas | SOGED</title>
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+    <link rel="stylesheet" href="../CSS/comunicaciones_internas.css">
+</head>
+<body class="pagina-dash">
+
+<!-- encabezado -->
+<header>
+<nav class="navbar barra-superior-dash" aria-label="Barra superior">
+    <div class="logo">
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuLateralOculto" aria-controls="menuLateralOculto" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="SENA">
+        <span class="linea-divisoria">|</span>
+        <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="SOGED">
+    </div>
+
+    <!-- datos del usuario -->
+    <div class="perfil-usuario">
+        <div class="info-usuario d-none sm:d-flex">
+            <span class="nombre">Hola, Juan Perez</span>
+            <span class="rol">Administrador Principal</span>
+        </div>
+        <a href="configuracion.html" class="perfil-enlace" aria-label="Configuración de la cuenta"><i class="fa-solid fa-circle-user icono-perfil"></i></a>
+        <!-- campana de notificaciones -->
+        <details class="notification-menu">
+            <summary class="notification-bell" aria-label="Notificaciones, 3 sin leer"><i class="fa-regular fa-bell icono-campana"></i><span class="notification-count">3</span></summary>
+            <div class="notification-panel">
+                <h2>Notificaciones</h2>
+                <ul class="notification-list">
+                    <li><a class="notification-item unread" href="comunicaciones_recibida.html"><strong>Nuevo radicado recibido</strong><span>RE - 003 · Ministerio del Trabajo</span><small>Hace 10 min</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_internas.html"><strong>Memorando interno pendiente</strong><span>CI - 012 · Entrega de evidencia guía 3</span><small>Hace 1 hora</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_despachada.html"><strong>Comunicación despachada</strong><span>Se confirmó la entrega de un oficio</span><small>Hace 3 horas</small></a></li>
+                    <li><a class="notification-item" href="reportes.html"><strong>Reporte generado</strong><span>El reporte mensual está disponible</span><small>Ayer</small></a></li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- menú -->
+    <dialog class="drawer drawer-start menu-drawer" tabindex="-1" id="menuLateralOculto" aria-labelledby="menuLateralOcultoLabel">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="menuLateralOcultoLabel">Menú</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="drawer-body">
+            <nav class="menu-lateral" aria-label="Menú principal">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html" class="activo" aria-current="page"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+            <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+    </dialog>
+</nav>
+</header>
+
+<div class="contenedor-dashboard">
+
+    <!-- barra lateral -->
+    <aside class="sidebar">
+        <nav class="menu-lateral">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html" class="activo" aria-current="page"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+
+        <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="contenido-dash">
+        <h1 class="titulo-pagina">Comunicaciones internas</h1>
+
+        <div class="panel modulo">
+
+            <input type="radio" name="vista" id="tab-entrada" checked>
+            <input type="radio" name="vista" id="tab-enviados">
+            <input type="radio" name="vista" id="tab-redactar">
+
+            <div class="tabs">
+                <label class="tab" for="tab-entrada"><i class="fa-solid fa-inbox"></i> Bandeja de entrada <span class="cuenta">2</span></label>
+                <label class="tab" for="tab-enviados"><i class="fa-regular fa-paper-plane"></i> Enviados</label>
+                <label class="tab" for="tab-redactar"><i class="fa-solid fa-pen-to-square"></i> Redactar</label>
+            </div>
+
+            <div class="vistas">
+
+                <section class="vista v-entrada">
+
+                    <!-- filtros de búsqueda -->
+                    <div class="caja caja-filtro">
+                        <h2 class="titulo-caja">Filtro de busqueda</h2>
+                        <form class="fila-filtros" action="#" method="get">
+                            <div class="campo campo-buscar">
+                                <label for="b-texto">Remitente, asunto o radicado</label>
+                                <input type="search" id="b-texto" name="q" class="libre" placeholder="Ej: CI - 012" autocomplete="off">
+                            </div>
+                            <div class="campo campo-fecha">
+                                <label for="b-ini">Fecha Inicial</label>
+                                <input type="date" id="b-ini" name="fecha_inicial">
+                            </div>
+                            <div class="campo campo-fecha">
+                                <label for="b-fin">Fecha final</label>
+                                <input type="date" id="b-fin" name="fecha_final">
+                            </div>
+                            <div class="campo campo-estado">
+                                <label for="b-estado">Estado</label>
+                                <select id="b-estado" name="estado">
+
+                                    <option value="" disabled>Seleccione una opción</option>
+                                    <option value="" selected>Todos los estados</option>
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="En proceso">En proceso</option>
+                                    <option value="Finalizado">Finalizado</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-buscar" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- tabla de resultados -->
+                    <div class="caja caja-tabla">
+                        <h2 class="titulo-caja">Bandeja de entrada</h2>
+                        <div class="estados-correo" aria-label="Estados de lectura y prioridad">
+                            <span class="estado-correo leido"><i class="fa-solid fa-circle"></i> Leído</span>
+                            <span class="estado-correo pendiente"><i class="fa-solid fa-circle"></i> Pendiente</span>
+                            <span class="estado-correo prioritario"><i class="fa-solid fa-circle"></i> Prioritario</span>
+                        </div>
+                        <div class="tabla-wrap">
+                            <table class="tabla-datos">
+                                <thead>
+                                    <tr>
+                                        <th>Radicado</th>
+                                        <th>Remitente</th>
+                                        <th>Asunto</th>
+                                        <th>Fecha y hora de recepción</th>
+                                        <th>Lectura</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr class="nuevo">
+                                        <td class="radicado"><span class="punto-nuevo" title="Sin leer"></span><span>CI - 012</span></td>
+                                        <td class="izq">Nathalia Romero Montealegre</td>
+                                        <td class="izq">Entrega de evidencia guía 3</td>
+                                        <td>03/10/2026<br>08:15 a. m.</td>
+                                        <td><span class="estado-correo pendiente">Pendiente</span></td>
+                                        <td><span class="estado pendiente">Pendiente</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-ent1" class="btn-icono" title="Ver documento" aria-label="Ver CI - 012"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,CI%20-%20012%20Entrega%20de%20evidencia%20gu%C3%ADa%203" download="CI-012.txt" class="btn-icono" title="Descargar" aria-label="Descargar CI - 012"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="nuevo">
+                                        <td class="radicado"><span class="punto-nuevo" title="Sin leer"></span><span>CI - 011</span></td>
+                                        <td class="izq">Katherin Sofia Cruz Diaz</td>
+                                        <td class="izq">Solicitud de permiso para visita técnica</td>
+                                        <td>02/10/2026<br>03:40 p. m.</td>
+                                        <td><span class="estado-correo pendiente">Pendiente</span></td>
+                                        <td><span class="estado proceso">En proceso</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-ent2" class="btn-icono" title="Ver documento" aria-label="Ver CI - 011"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,CI%20-%20011%20Solicitud%20de%20permiso" download="CI-011.txt" class="btn-icono" title="Descargar" aria-label="Descargar CI - 011"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radicado"><span class="sin-punto"></span><span>CI - 010</span></td>
+                                        <td class="izq">Maria Camila Prada Yepez</td>
+                                        <td class="izq">Informe de avance del proyecto</td>
+                                        <td>30/09/2026<br>10:05 a. m.</td>
+                                        <td><span class="estado-correo leido">Leído</span></td>
+                                        <td><span class="estado entregado">Finalizado</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-ent3" class="btn-icono" title="Ver documento" aria-label="Ver CI - 010"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,CI%20-%20010%20Informe%20de%20avance" download="CI-010.txt" class="btn-icono" title="Descargar" aria-label="Descargar CI - 010"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="nota-nueva">Los documentos nuevos se resaltan en verde. Orden: más recientes primero.</p>
+
+                        <div class="pie-tabla">
+                            <input type="radio" name="pagina" id="p1" checked>
+                            <input type="radio" name="pagina" id="p2">
+                            <input type="radio" name="pagina" id="p3">
+                            <div class="pag">
+                                <span class="flecha dis prev-dis"><i class="fa-solid fa-chevron-left"></i></span>
+                                <label class="flecha prev-2" for="p1" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                                <label class="flecha prev-3" for="p2" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                                <label class="num" for="p1">1</label>
+                                <label class="num" for="p2">2</label>
+                                <label class="num" for="p3">3</label>
+                                <label class="flecha next-1" for="p2" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                                <label class="flecha next-2" for="p3" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                                <span class="flecha dis next-dis"><i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <p class="contador">
+                                <span class="t1">Mostrando 1 a 3 de 12 documentos</span>
+                                <span class="t2">Mostrando 2 a 3 de 12 documentos</span>
+                                <span class="t3">Mostrando 3 a 3 de 12 documentos</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="vista v-enviados">
+                    <!-- tabla de resultados -->
+                    <div class="caja caja-tabla">
+                        <h2 class="titulo-caja">Documentos enviados</h2>
+                        <div class="tabla-wrap">
+                            <table class="tabla-datos">
+                                <thead>
+                                    <tr>
+                                        <th>Radicado</th>
+                                        <th>Tipo de documento</th>
+                                        <th>Destinatario</th>
+                                        <th>Asunto</th>
+                                        <th>Fecha y hora de envío</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>CI - 009</span></td>
+                                        <td>Circular</td>
+                                        <td class="izq">Ficha 3421587 (todos los aprendices)</td>
+                                        <td class="izq">Cronograma de entregas de octubre</td>
+                                        <td>01/10/2026<br>09:30 a. m.</td>
+                                        <td><span class="estado entregado">Entregado</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-env1" class="btn-icono" title="Ver documento" aria-label="Ver CI - 009"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,CI%20-%20009%20Cronograma%20de%20entregas" download="CI-009.txt" class="btn-icono" title="Descargar" aria-label="Descargar CI - 009"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>CI - 008</span></td>
+                                        <td>Memorando</td>
+                                        <td class="izq">Justin Kalel Ortiz Suarez</td>
+                                        <td class="izq">Reunión de seguimiento</td>
+                                        <td>25/09/2026<br>02:10 p. m.</td>
+                                        <td><span class="estado entregado">Entregado</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-env2" class="btn-icono" title="Ver documento" aria-label="Ver CI - 008"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,CI%20-%20008%20Reuni%C3%B3n%20de%20seguimiento" download="CI-008.txt" class="btn-icono" title="Descargar" aria-label="Descargar CI - 008"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="nota-nueva"><i class="fa-solid fa-lock"></i> Un documento enviado no se puede modificar.</p>
+                    </div>
+                </section>
+
+                <section class="vista v-redactar">
+                    <!-- filtros de búsqueda -->
+                    <div class="caja caja-filtro">
+                        <h2 class="titulo-caja">Nueva comunicación interna</h2>
+
+                        <!-- formulario -->
+                        <form id="form-redactar" class="form-grid" action="#guardado" method="post" enctype="multipart/form-data">
+
+                            <div class="campo ancho">
+                                <span class="etiqueta-campo">Para</span>
+                                <div class="lista-dest" role="group" aria-label="Para">
+                                    <label><input type="checkbox" name="destinatarios" value="3421587"><i class="fa-solid fa-users"></i> Toda la ficha 3421587 <small>Ficha</small></label>
+                                    <label><input type="checkbox" name="destinatarios" value="justin"><i class="fa-solid fa-user"></i> Justin Kalel Ortiz Suarez <small>Aprendiz · Ficha 3421587</small></label>
+                                    <label><input type="checkbox" name="destinatarios" value="nathalia"><i class="fa-solid fa-user"></i> Nathalia Romero Montealegre <small>Aprendiz · Ficha 3421587</small></label>
+                                    <label><input type="checkbox" name="destinatarios" value="katherin"><i class="fa-solid fa-user"></i> Katherin Sofia Cruz Diaz <small>Aprendiz · Ficha 3421587</small></label>
+                                    <label><input type="checkbox" name="destinatarios" value="maria"><i class="fa-solid fa-user"></i> Maria Camila Prada Yepez <small>Aprendiz · Ficha 3421587</small></label>
+                                </div>
+                                <span class="ayuda">Solo se listan usuarios activos.</span>
+                            </div>
+
+                            <div class="campo">
+                                <label for="r-dependencia">Dependencia</label>
+                                <select id="r-dependencia" name="dependencia">
+                                    <option value="gestion-documental" selected>Gestión Documental</option>
+                                    <option value="talento-humano">Talento Humano</option>
+                                    <option value="formacion">Formación</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="r-prioridad">Prioridad</label>
+                                <select id="r-prioridad" name="prioridad">
+                                    <option value="normal" selected>Normal</option>
+                                    <option value="alta">Alta</option>
+                                    <option value="urgente">Urgente</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="r-asunto">Asunto <span class="req">*</span></label>
+                                <input type="text" id="r-asunto" name="asunto" class="libre" maxlength="120" placeholder="Tema del documento" required>
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="r-cuerpo">Mensaje <span class="req">*</span></label>
+                                <textarea id="r-cuerpo" name="cuerpo" placeholder="Escribe aquí el contenido de la comunicación" required></textarea>
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="r-archivo">Adjuntar archivo</label>
+                                <input type="file" id="r-archivo" name="soporte" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                                <span class="ayuda">PDF, JPG, PNG o Word. Máximo 10 MB.</span>
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="r-coment">Comentarios adicionales <span class="opcional">(opcional)</span></label>
+                                <input type="text" id="r-coment" name="comentarios" class="libre" placeholder="Notas o aclaraciones complementarias">
+                            </div>
+
+                            <div class="nota ancho">
+                                <i class="fa-solid fa-hashtag"></i>El radicado se asigna automáticamente al enviar, y el destinatario recibe una alerta dentro del sistema.
+                            </div>
+                        </form>
+
+                        <div class="barra-botones">
+                            <label for="tab-entrada" class="btn-gris">Cancelar</label>
+                            <a href="#confirmar" class="btn-verde"><i class="fa-regular fa-paper-plane"></i> Enviar</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="confirmar">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>¿Enviar la comunicación?</h3>
+        <p class="sub">Revisa el destinatario y el asunto antes de continuar.</p>
+        <div class="nota"><i class="fa-solid fa-lock"></i>Una vez enviada no podrá modificarse. Se asignará un radicado consecutivo único.</div>
+        <div class="modal-acciones">
+            <a href="#" class="btn-gris">Volver</a>
+            <button type="submit" form="form-redactar" class="btn-verde"><i class="fa-regular fa-paper-plane"></i> Confirmar envío</button>
+        </div>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-ent1">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado CI - 012</h3>
+        <p class="sub">Entrega de evidencia guía 3</p>
+        <dl>
+            <dt>Remitente</dt><dd>Nathalia Romero Montealegre</dd>
+            <dt>Recibido</dt><dd>03/10/2026, 08:15 a. m.</dd>
+            <dt>Lectura</dt><dd>Sin leer</dd>
+        </dl>
+        <div class="cuerpo">Adjunto la evidencia de la guía 3 para su revisión.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,Evidencia%20guia%203" download="evidencia-guia3.txt">evidencia-guia3.pdf</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="e1">Estado del trámite</label>
+                <select id="e1" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Pendiente" selected>Pendiente</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar estado</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-ent2">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado CI - 011</h3>
+        <p class="sub">Solicitud de permiso para visita técnica</p>
+        <dl>
+            <dt>Remitente</dt><dd>Katherin Sofia Cruz Diaz</dd>
+            <dt>Recibido</dt><dd>02/10/2026, 03:40 p. m.</dd>
+            <dt>Lectura</dt><dd>Sin leer</dd>
+        </dl>
+        <div class="cuerpo">Solicito autorización para asistir a la visita técnica programada con la ficha.</div>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="e2">Estado del trámite</label>
+                <select id="e2" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En proceso" selected>En proceso</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar estado</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-ent3">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado CI - 010</h3>
+        <p class="sub">Informe de avance del proyecto</p>
+        <dl>
+            <dt>Remitente</dt><dd>Maria Camila Prada Yepez</dd>
+            <dt>Recibido</dt><dd>30/09/2026, 10:05 a. m.</dd>
+            <dt>Lectura</dt><dd>Leído</dd>
+        </dl>
+        <div class="cuerpo">Se comparte el informe con el avance del proyecto a la fecha.</div>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="e3">Estado del trámite</label>
+                <select id="e3" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado" selected>Finalizado</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar estado</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-env1">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Circular CI - 009</h3>
+        <p class="sub">Cronograma de entregas de octubre</p>
+        <dl>
+            <dt>Destinatario</dt><dd>Ficha 3421587 (todos los aprendices)</dd>
+            <dt>Enviado</dt><dd>01/10/2026, 09:30 a. m.</dd>
+            <dt>Estado</dt><dd><span class="estado entregado">Entregado</span></dd>
+        </dl>
+        <div class="cuerpo">Se publica el cronograma de entregas del mes de octubre para la ficha.</div>
+        <div class="modal-acciones"><a href="#" class="btn-gris">Cerrar</a></div>
+    </div>
+</div>
+<!-- ventana emergente -->
+<div class="modal" id="m-env2">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Memorando CI - 008</h3>
+        <p class="sub">Reunión de seguimiento</p>
+        <dl>
+            <dt>Destinatario</dt><dd>Justin Kalel Ortiz Suarez</dd>
+            <dt>Enviado</dt><dd>25/09/2026, 02:10 p. m.</dd>
+            <dt>Estado</dt><dd><span class="estado entregado">Entregado</span></dd>
+        </dl>
+        <div class="cuerpo">Se le convoca a la reunión de seguimiento del proyecto.</div>
+        <div class="modal-acciones"><a href="#" class="btn-gris">Cerrar</a></div>
+    </div>
+</div>
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+<!-- aviso de confirmación -->
+<div class="aviso" id="guardado">
+    <a href="#" class="aviso-fondo" aria-label="Cerrar"></a>
+    <div class="aviso-caja" role="dialog" aria-labelledby="guardado-titulo">
+        <h2 id="guardado-titulo">Cambios guardados</h2>
+        <p>La información se guardó correctamente.</p>
+        <div class="aviso-acciones"><a href="#" class="aviso-boton">Aceptar</a></div>
+    </div>
+</div>
+</body>
+</html>

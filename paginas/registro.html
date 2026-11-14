@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/login-registro.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+    <title>Registro | SOGED</title>
+</head>
+<body class="pagina-login">
+
+    <!-- encabezado -->
+    <header class="barra-superior">
+        <div class="logo">
+            <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="Logo del SENA">
+            <span class="linea-divisoria">|</span>
+            <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="Logo de SOGED">
+        </div>
+    </header>
+
+    <!-- fondo del formulario -->
+    <section class="fondo-login">
+        <!-- formulario -->
+        <form class="caja-login caja-registro" action="login.html">
+
+            <div class="encabezado-registro">
+                <span class="icono-perfil"></span>
+                <div>
+                    <h1>Solicita acceso</h1>
+                    <p>Crea tu cuenta para acceder a SOGED</p>
+                </div>
+            </div>
+
+            <label class="visualmente-oculto" for="nombre">Nombre(s)</label>
+            <input type="text" id="nombre" name="nombre" class="campo-icono ico-usuario" placeholder="Nombre(s)" required>
+            <label class="visualmente-oculto" for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" class="campo-icono ico-correo" placeholder="Correo electrónico" required>
+            <label class="visualmente-oculto" for="registro-contrasena">Contraseña</label>
+            <input type="password" id="registro-contrasena" name="contrasena" class="campo-icono ico-candado-ojo" placeholder="Contraseña" minlength="8" title="Mínimo 8 caracteres" required>
+            <label class="visualmente-oculto" for="confirmar-contrasena">Confirmar contraseña</label>
+            <input type="password" id="confirmar-contrasena" name="confirmar_contrasena" class="campo-icono ico-candado-ojo" placeholder="Confirmar contraseña" minlength="8" title="Mínimo 8 caracteres" required>
+
+            <label class="visualmente-oculto" for="tipo-identificacion">Tipo de identificación</label>
+            <select id="tipo-identificacion" name="tipo_identificacion" class="campo-icono ico-tarjeta-flecha">
+                <option value="CC">C.C.</option>
+                <option value="TI">T.I.</option>
+                <option value="PEP">PEP</option>
+                <option value="PPT">Permiso por protección temporal</option>
+            </select>
+            <label class="visualmente-oculto" for="numero-identidad">Número de identidad</label>
+            <input type="text" id="numero-identidad" name="numero_identidad" class="campo-icono ico-tarjeta" placeholder="Número de identidad" required>
+
+            <label class="visualmente-oculto" for="rol">Rol solicitado</label>
+            <select id="rol" name="rol">
+                <option value="aprendiz">Aprendiz</option>
+                <option value="administrador">Administrador</option>
+            </select>
+
+            <button type="submit" class="boton-verde">Registrar</button>
+        </form>
+    </section>
+
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+</body>
+</html>

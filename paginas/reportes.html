@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes | SOGED</title>
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+    <link rel="stylesheet" href="../CSS/reportes.css">
+</head>
+<body class="pagina-dash">
+
+<!-- encabezado -->
+<header>
+<nav class="navbar barra-superior-dash" aria-label="Barra superior">
+    <div class="logo">
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuLateralOculto" aria-controls="menuLateralOculto" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="SENA">
+        <span class="linea-divisoria">|</span>
+        <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="SOGED">
+    </div>
+
+    <!-- datos del usuario -->
+    <div class="perfil-usuario">
+        <div class="info-usuario d-none sm:d-flex">
+            <span class="nombre">Hola, Juan Perez</span>
+            <span class="rol">Administrador Principal</span>
+        </div>
+        <a href="configuracion.html" class="perfil-enlace" aria-label="Configuración de la cuenta"><i class="fa-solid fa-circle-user icono-perfil"></i></a>
+        <!-- campana de notificaciones -->
+        <details class="notification-menu">
+            <summary class="notification-bell" aria-label="Notificaciones, 3 sin leer"><i class="fa-regular fa-bell icono-campana"></i><span class="notification-count">3</span></summary>
+            <div class="notification-panel">
+                <h2>Notificaciones</h2>
+                <ul class="notification-list">
+                    <li><a class="notification-item unread" href="comunicaciones_recibida.html"><strong>Nuevo radicado recibido</strong><span>RE - 003 · Ministerio del Trabajo</span><small>Hace 10 min</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_internas.html"><strong>Memorando interno pendiente</strong><span>CI - 012 · Entrega de evidencia guía 3</span><small>Hace 1 hora</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_despachada.html"><strong>Comunicación despachada</strong><span>Se confirmó la entrega de un oficio</span><small>Hace 3 horas</small></a></li>
+                    <li><a class="notification-item" href="reportes.html"><strong>Reporte generado</strong><span>El reporte mensual está disponible</span><small>Ayer</small></a></li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- menú desplegable -->
+    <dialog class="drawer drawer-start menu-drawer" tabindex="-1" id="menuLateralOculto" aria-labelledby="menuLateralOcultoLabel">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="menuLateralOcultoLabel">Menú</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="drawer-body">
+            <nav class="menu-lateral" aria-label="Menú principal">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html" class="activo" aria-current="page"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+            <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+    </dialog>
+</nav>
+</header>
+
+<div class="contenedor-dashboard">
+
+    <!-- barra lateral -->
+    <aside class="sidebar">
+        <nav class="menu-lateral">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html" class="activo" aria-current="page"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+
+        <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="contenido-dash">
+        <h1 class="titulo-pagina">Reportes</h1>
+        <div class="panel">
+
+            <!-- filtros de búsqueda -->
+            <section class="caja caja-filtro">
+                <h2 class="titulo-caja">Filtro de busqueda</h2>
+
+                <form class="fila-filtros" action="#" method="get">
+
+                    <div class="campo campo-tipo">
+                        <label for="tipo-com">Tipo de comunicacion</label>
+                        <select id="tipo-com" name="tipo_comunicacion">
+
+                            <option value="" disabled>Seleccione una opción</option>
+                            <option value="recibida">Correspondencia recibida</option>
+                            <option value="despachada">Correspondencia despachada</option>
+                            <option value="interna" selected>Comunicacion Interna</option>
+                        </select>
+                    </div>
+
+                    <div class="campo campo-radicado">
+                        <label for="radicado">Radicado</label>
+                        <input type="text" id="radicado" name="radicado" list="lista-radicados" placeholder="CI - 001" autocomplete="off">
+                        <datalist id="lista-radicados">
+                            <option value="CI - 001"></option>
+                            <option value="CI - 002"></option>
+                            <option value="CI - 003"></option>
+                            <option value="CI - 004"></option>
+                        </datalist>
+                    </div>
+
+                    <div class="campo campo-doc">
+                        <label for="tipo-doc">Tipo de documento</label>
+                        <select id="tipo-doc" name="tipo_documento">
+
+                            <option value="" disabled>Seleccione una opción</option>
+                            <option value="" selected>Todos</option>
+                            <option value="Cartas">Cartas</option>
+                            <option value="Memorando">Memorando</option>
+                            <option value="Circulares">Circulares</option>
+                            <option value="Actas">Actas</option>
+                            <option value="Informes">Informes</option>
+                            <option value="Facturas">Facturas</option>
+                            <option value="PQR">PQR</option>
+                            <option value="Peticiones">Peticiones</option>
+                            <option value="Reclamos">Reclamos</option>
+                            <option value="Solicitudes">Solicitudes</option>
+                        </select>
+                    </div>
+
+                    <div class="campo campo-fecha">
+                        <label for="fecha-ini">Fecha Inicial</label>
+                        <input type="date" id="fecha-ini" name="fecha_inicial">
+                    </div>
+
+                    <div class="campo campo-fecha">
+                        <label for="fecha-fin">Fecha final</label>
+                        <input type="date" id="fecha-fin" name="fecha_final">
+                    </div>
+
+                    <div class="campo campo-estado">
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado">
+
+                            <option value="" disabled>Seleccione una opción</option>
+                            <option value="" selected>Todos los estados</option>
+                            <option value="Entregado">Entregado</option>
+                            <option value="En proceso">En proceso</option>
+                            <option value="Pendiente">Pendiente</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-buscar" aria-label="Filtrar reportes"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </section>
+
+            <!-- tabla de resultados -->
+            <section class="caja caja-tabla">
+                <h2 class="titulo-caja">Reportes generados</h2>
+                <div class="tabla-wrap">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>Radicado</th>
+                                <th>Tipo de documento</th>
+                                <th>Remitente</th>
+                                <th>Asunto</th>
+                                <th>Fecha de recepción</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>CI - 001</span></td>
+                                <td>Memorando</td>
+                                <td class="izq">Oficina de Talento Humano</td>
+                                <td class="izq">Reunión mensual de equipo</td>
+                                <td>15/05/2026</td>
+                                <td><span class="estado entregado">Entregado</span></td>
+                                <td class="acciones">
+                                    <a href="#doc-ci001" class="btn-icono" title="Ver documento" aria-label="Ver documento CI - 001"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="data:text/plain;charset=utf-8,RADICADO%3A%20CI%20-%20001%0ATIPO%3A%20Memorando%0AREMITENTE%3A%20Oficina%20de%20Talento%20Humano%0AASUNTO%3A%20Reuni%C3%B3n%20mensual%20de%20equipo%0AFECHA%3A%2015%2F05%2F2026%0AESTADO%3A%20Entregado" download="CI-001.txt" class="btn-icono" title="Descargar documento" aria-label="Descargar documento CI - 001"><i class="fa-solid fa-download"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pie-tabla">
+                    <input type="radio" name="pagina" id="p1" checked>
+                    <input type="radio" name="pagina" id="p2">
+                    <input type="radio" name="pagina" id="p3">
+
+                    <div class="pag">
+                        <span class="flecha dis prev-dis"><i class="fa-solid fa-chevron-left"></i></span>
+                        <label class="flecha prev-2" for="p1" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                        <label class="flecha prev-3" for="p2" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+
+                        <label class="num" for="p1">1</label>
+                        <label class="num" for="p2">2</label>
+                        <label class="num" for="p3">3</label>
+
+                        <label class="flecha next-1" for="p2" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                        <label class="flecha next-2" for="p3" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                        <span class="flecha dis next-dis"><i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+
+                    <p class="contador">
+                        <span class="t1">Mostrando 1 a 4 de 12 documentos</span>
+                        <span class="t2">Mostrando 2 a 4 de 12 documentos</span>
+                        <span class="t3">Mostrando 3 a 4 de 12 documentos</span>
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="doc-ci001">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Memorando CI - 001</h3>
+        <p class="sub">Reunión mensual de equipo</p>
+        <dl>
+            <dt>Tipo de comunicación</dt><dd>Comunicación interna</dd>
+            <dt>Remitente</dt><dd>Oficina de Talento Humano</dd>
+            <dt>Fecha de recepción</dt><dd>15/05/2026</dd>
+            <dt>Estado</dt><dd><span class="estado entregado">Entregado</span></dd>
+        </dl>
+        <div class="cuerpo">Se convoca a todo el personal a la reunión mensual de equipo para revisar avances y compromisos del periodo.</div>
+        <div class="modal-acciones">
+            <a href="data:text/plain;charset=utf-8,RADICADO%3A%20CI%20-%20001%0ATIPO%3A%20Memorando%0AREMITENTE%3A%20Oficina%20de%20Talento%20Humano%0AASUNTO%3A%20Reuni%C3%B3n%20mensual%20de%20equipo%0AFECHA%3A%2015%2F05%2F2026%0AESTADO%3A%20Entregado" download="CI-001.txt" class="btn-verde"><i class="fa-solid fa-download"></i> Descargar</a>
+        </div>
+    </div>
+</div>
+
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+</body>
+</html>

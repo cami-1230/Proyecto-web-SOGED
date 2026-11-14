@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendices | SOGED</title>
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/usuarios.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+</head>
+<body>
+
+<!-- encabezado -->
+<header>
+<nav class="navbar barra-superior-dash" aria-label="Barra superior">
+    <div class="logo">
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuLateralOculto" aria-controls="menuLateralOculto" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="SENA">
+        <span class="linea-divisoria">|</span>
+        <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="SOGED">
+    </div>
+    <!-- datos del usuario -->
+    <div class="perfil-usuario">
+        <div class="info-usuario d-none sm:d-flex">
+            <span class="nombre">Hola, Juan Perez</span>
+            <span class="rol">Administrador Principal</span>
+        </div>
+        <a href="configuracion.html" class="perfil-enlace" aria-label="Configuración de la cuenta"><i class="fa-solid fa-circle-user icono-perfil"></i></a>
+        <!-- campana de notificaciones -->
+        <details class="notification-menu">
+            <summary class="notification-bell" aria-label="Notificaciones, 3 sin leer"><i class="fa-regular fa-bell icono-campana"></i><span class="notification-count">3</span></summary>
+            <div class="notification-panel">
+                <h2>Notificaciones</h2>
+                <ul class="notification-list">
+                    <li><a class="notification-item unread" href="comunicaciones_recibida.html"><strong>Nuevo radicado recibido</strong><span>RE - 003 · Ministerio del Trabajo</span><small>Hace 10 min</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_internas.html"><strong>Memorando interno pendiente</strong><span>CI - 012 · Entrega de evidencia guía 3</span><small>Hace 1 hora</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_despachada.html"><strong>Comunicación despachada</strong><span>Se confirmó la entrega de un oficio</span><small>Hace 3 horas</small></a></li>
+                    <li><a class="notification-item" href="reportes.html"><strong>Reporte generado</strong><span>El reporte mensual está disponible</span><small>Ayer</small></a></li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- menú -->
+    <dialog class="drawer drawer-start menu-drawer" tabindex="-1" id="menuLateralOculto" aria-labelledby="menuLateralOcultoLabel">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="menuLateralOcultoLabel">Menú</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="drawer-body">
+            <nav class="menu-lateral" aria-label="Menú principal">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html" class="activo" aria-current="page"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+            <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+    </dialog>
+</nav>
+</header>
+
+<div class="contenedor-dashboard">
+
+    <!-- barra lateral -->
+    <aside class="sidebar">
+        <nav class="menu-lateral">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html" class="activo" aria-current="page"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+        <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="contenido-dash">
+        <h1 class="titulo-pagina">Aprendices</h1>
+        <div class="panel">
+
+            <div class="titulo-ficha">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>Gestion Documental - 3421587</span>
+            </div>
+
+            <div class="cabecera-aprendices">
+                <span>Nombre(s) Apellidos</span>
+                <span>Accion</span>
+            </div>
+
+            <div class="fila-aprendiz">
+                <i class="fa-solid fa-user icono-aprendiz"></i>
+                <div class="nombre-aprendiz">Justin Kalel Ortiz Suarez</div>
+                <div class="acciones">
+                    <a href="comunicaciones_recibida.html" class="doc-verde" title="Ver documentos enviados"><i class="fa-solid fa-file-lines"></i></a>
+                    <a href="#rol" title="Asignar rol"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="#bloquear" title="Bloquear aprendiz"><i class="fa-solid fa-lock"></i></a>
+                </div>
+            </div>
+
+            <div class="fila-aprendiz">
+                <i class="fa-solid fa-user icono-aprendiz"></i>
+                <div class="nombre-aprendiz">Nathalia Romero Montealegre</div>
+                <div class="acciones">
+                    <a href="comunicaciones_recibida.html" class="doc-verde" title="Ver documentos enviados"><i class="fa-solid fa-file-lines"></i></a>
+                    <a href="#rol" title="Asignar rol"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="#bloquear" title="Bloquear aprendiz"><i class="fa-solid fa-lock"></i></a>
+                </div>
+            </div>
+
+            <div class="fila-aprendiz">
+                <i class="fa-solid fa-user icono-aprendiz"></i>
+                <div class="nombre-aprendiz">Katherin Sofia Cruz Diaz</div>
+                <div class="acciones">
+                    <a href="comunicaciones_recibida.html" class="doc-verde" title="Ver documentos enviados"><i class="fa-solid fa-file-lines"></i></a>
+                    <a href="#rol" title="Asignar rol"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="#bloquear" title="Bloquear aprendiz"><i class="fa-solid fa-lock"></i></a>
+                </div>
+            </div>
+
+            <div class="fila-aprendiz">
+                <i class="fa-solid fa-user icono-aprendiz"></i>
+                <div class="nombre-aprendiz">Maria Camila Prada Yepez</div>
+                <div class="acciones">
+                    <a href="comunicaciones_recibida.html" class="doc-verde" title="Ver documentos enviados"><i class="fa-solid fa-file-lines"></i></a>
+                    <a href="#rol" title="Asignar rol"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="#bloquear" title="Bloquear aprendiz"><i class="fa-solid fa-lock"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="rol">
+    <div class="modal-caja">
+        <div class="modal-titulo">
+            <span><i class="fa-solid fa-shield-halved escudo"></i>Asignar rol</span>
+            <a href="#" class="cerrar" title="Cerrar"><i class="fa-regular fa-circle-xmark"></i></a>
+        </div>
+
+        <div class="roles">
+
+            <label class="tarjeta-rol">
+                <span class="circulo"><i class="fa-solid fa-user"></i></span>
+                <h4>General</h4>
+                <span class="etiqueta">Rol básico del sistema</span>
+                <p>Permite consultar información general del sistema y realizar actividades básicas según su perfil.</p>
+                <p class="permisos-titulo">Permisos principales:</p>
+                <ul>
+                    <li><i class="fa-regular fa-circle-check"></i>Consultar documentos asignados</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Ver comunicaciones internas</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Consultar reportes básicos</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Actualizar su información personal</li>
+                </ul>
+                <input type="radio" name="rol">
+            </label>
+
+            <label class="tarjeta-rol">
+                <span class="circulo"><i class="fa-solid fa-file-circle-check"></i></span>
+                <h4>General Radicador</h4>
+                <span class="etiqueta">Gestión de radicación</span>
+                <p>Permite radicar, registrar y gestionar la correspondencia recibida y despachada en el sistema.</p>
+                <p class="permisos-titulo">Permisos principales:</p>
+                <ul>
+                    <li><i class="fa-regular fa-circle-check"></i>Radicar correspondencia recibida</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Radicar correspondencia despachada</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Cargar y gestionar documentos</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Consultar y hacer seguimiento de radicados</li>
+                </ul>
+                <input type="radio" name="rol" checked>
+            </label>
+
+            <label class="tarjeta-rol">
+                <span class="circulo"><i class="fa-solid fa-shield-halved"></i></span>
+                <h4>Administrador Interno</h4>
+                <span class="etiqueta">Administración y control</span>
+                <p>Permite administrar usuarios, asignar tareas, generar reportes y configurar el sistema.</p>
+                <p class="permisos-titulo">Permisos principales:</p>
+                <ul>
+                    <li><i class="fa-regular fa-circle-check"></i>Gestionar usuarios y roles</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Asignar y supervisar tareas</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Generar reportes avanzados</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Configurar parámetros del sistema</li>
+                    <li><i class="fa-regular fa-circle-check"></i>Control total de la información</li>
+                </ul>
+                <input type="radio" name="rol">
+            </label>
+
+        </div>
+
+        <div class="botones-modal">
+            <a href="#rol-guardado" class="btn-verde">Guardar rol</a>
+            <a href="#" class="btn-gris">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="bloquear">
+    <div class="modal-caja pequena">
+        <h3 class="modal-titulo"><span><i class="fa-solid fa-lock escudo"></i>Bloquear aprendiz</span></h3>
+        <p>¿Quieres bloquear a este aprendiz? Úsalo si se retiró del programa o su matricula fue cancelada. Ya no podrá entrar al sistema.</p>
+        <div class="botones-modal">
+            <a href="#bloqueado" class="btn-verde">Sí, bloquear</a>
+            <a href="#" class="btn-gris">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+<!-- aviso de confirmación -->
+<div class="aviso" id="rol-guardado">
+    <a href="#" class="aviso-fondo" aria-label="Cerrar"></a>
+    <div class="aviso-caja" role="dialog" aria-labelledby="rol-guardado-titulo">
+        <h2 id="rol-guardado-titulo">Rol asignado</h2>
+        <p>El rol del aprendiz se asignó correctamente.</p>
+        <div class="aviso-acciones"><a href="#" class="aviso-boton">Aceptar</a></div>
+    </div>
+</div>
+
+<!-- aviso de confirmación -->
+<div class="aviso" id="bloqueado">
+    <a href="#" class="aviso-fondo" aria-label="Cerrar"></a>
+    <div class="aviso-caja" role="dialog" aria-labelledby="bloqueado-titulo">
+        <h2 id="bloqueado-titulo">Aprendiz bloqueado</h2>
+        <p>El aprendiz ya no podrá ingresar al sistema.</p>
+        <div class="aviso-acciones"><a href="#" class="aviso-boton">Aceptar</a></div>
+    </div>
+</div>
+</body>
+</html>

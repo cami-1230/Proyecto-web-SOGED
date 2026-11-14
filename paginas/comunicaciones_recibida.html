@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correspondencia recibida | SOGED</title>
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+    <link rel="stylesheet" href="../CSS/comunicaciones_recibidas.css">
+</head>
+<body class="pagina-dash">
+
+<!-- encabezado -->
+<header>
+<nav class="navbar barra-superior-dash" aria-label="Barra superior">
+    <div class="logo">
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuLateralOculto" aria-controls="menuLateralOculto" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="SENA">
+        <span class="linea-divisoria">|</span>
+        <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="SOGED">
+    </div>
+
+    <!-- datos del usuario -->
+    <div class="perfil-usuario">
+        <div class="info-usuario d-none sm:d-flex">
+            <span class="nombre">Hola, Juan Perez</span>
+            <span class="rol">Administrador Principal</span>
+        </div>
+        <a href="configuracion.html" class="perfil-enlace" aria-label="Configuración de la cuenta"><i class="fa-solid fa-circle-user icono-perfil"></i></a>
+        <!-- campana de notificaciones -->
+        <details class="notification-menu">
+            <summary class="notification-bell" aria-label="Notificaciones, 3 sin leer"><i class="fa-regular fa-bell icono-campana"></i><span class="notification-count">3</span></summary>
+            <div class="notification-panel">
+                <h2>Notificaciones</h2>
+                <ul class="notification-list">
+                    <li><a class="notification-item unread" href="comunicaciones_recibida.html"><strong>Nuevo radicado recibido</strong><span>RE - 003 · Ministerio del Trabajo</span><small>Hace 10 min</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_internas.html"><strong>Memorando interno pendiente</strong><span>CI - 012 · Entrega de evidencia guía 3</span><small>Hace 1 hora</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_despachada.html"><strong>Comunicación despachada</strong><span>Se confirmó la entrega de un oficio</span><small>Hace 3 horas</small></a></li>
+                    <li><a class="notification-item" href="reportes.html"><strong>Reporte generado</strong><span>El reporte mensual está disponible</span><small>Ayer</small></a></li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- menú  -->
+    <dialog class="drawer drawer-start menu-drawer" tabindex="-1" id="menuLateralOculto" aria-labelledby="menuLateralOcultoLabel">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="menuLateralOcultoLabel">Menú</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="drawer-body">
+            <nav class="menu-lateral" aria-label="Menú principal">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html" class="activo" aria-current="page"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+            <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+    </dialog>
+</nav>
+</header>
+
+<div class="contenedor-dashboard">
+
+    <!-- barra lateral -->
+    <aside class="sidebar">
+        <nav class="menu-lateral">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html" class="activo" aria-current="page"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+
+        <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="contenido-dash">
+        <h1 class="titulo-pagina">Correspondencia recibida</h1>
+
+        <div class="panel modulo">
+
+            <input type="radio" name="vista" id="tab-entrada" checked>
+            <input type="radio" name="vista" id="tab-redactar">
+
+            <div class="tabs">
+                <label class="tab" for="tab-entrada"><i class="fa-solid fa-inbox"></i> Registros recibidos</label>
+                <label class="tab" for="tab-redactar"><i class="fa-solid fa-file-circle-plus"></i> Registrar comunicación</label>
+            </div>
+
+            <div class="vistas">
+
+                <section class="vista v-entrada">
+
+                    <!-- filtros de búsqueda -->
+                    <div class="caja caja-filtro">
+                        <h2 class="titulo-caja">Filtro de busqueda</h2>
+                        <form class="fila-filtros" action="#" method="get">
+                            <div class="campo campo-buscar">
+                                <label for="b-texto">Radicado, entidad o descripción</label>
+                                <input type="search" id="b-texto" name="q" class="libre" placeholder="Ej: RE - 001" autocomplete="off">
+                            </div>
+                            <div class="campo campo-doc">
+                                <label for="b-tipo">Tipo de documento</label>
+                                <select id="b-tipo" name="tipo_documento">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Todos</option>
+                    <option value="Oficio">Oficio</option>
+                    <option value="Circular">Circular</option>
+                    <option value="Resolución">Resolución</option>
+                    <option value="Carta">Carta</option>
+                    <option value="Acta">Acta</option>
+                    <option value="Notificación">Notificación</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                            </div>
+                            <div class="campo campo-fecha">
+                                <label for="b-ini">Fecha Inicial</label>
+                                <input type="date" id="b-ini" name="fecha_inicial">
+                            </div>
+                            <div class="campo campo-fecha">
+                                <label for="b-fin">Fecha final</label>
+                                <input type="date" id="b-fin" name="fecha_final">
+                            </div>
+                            <div class="campo campo-estado">
+                                <label for="b-estado">Estado</label>
+                                <select id="b-estado" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Todos los estados</option>
+                    <option value="Recibido">Recibido</option>
+                    <option value="En trámite">En trámite</option>
+                    <option value="Respondido">Respondido</option>
+                    <option value="Cerrado">Cerrado</option>
+                </select>
+                            </div>
+                            <button type="submit" class="btn-buscar" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- tabla de resultados -->
+                    <div class="caja caja-tabla">
+                        <h2 class="titulo-caja">Comunicaciones recibidas</h2>
+                        <div class="tabla-wrap">
+                            <table class="tabla-datos">
+                                <thead>
+                                    <tr>
+                                        <th>Radicado</th>
+                                        <th>Nombre del remitente</th>
+                                        <th>Tipo de documento</th>
+                                        <th>Entidad de origen</th>
+                                        <th>Asunto</th>
+                                        <th>Fecha de recepción</th>
+                                        <th>Medio de recepción</th>
+                                        <th>Dependencia asignada</th>
+                                        <th>Persona responsable</th>
+                                        <th>Archivo adjunto</th>
+                                        <th>Estado</th>
+                                        <th>Asignado a</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>RE - 003</span></td>
+                                        <td class="izq">No registrado</td>
+                                        <td>Notificación</td>
+                                        <td class="izq">Ministerio del Trabajo</td>
+                                        <td class="izq">Notificación sobre contrato de aprendizaje</td>
+                                        <td>02/10/2026<small>11:20 a. m.</small></td>
+                                        <td>No registrado</td>
+                                        <td class="izq">No asignada</td>
+                                        <td class="izq">Sin asignar</td>
+                                        <td><a href="data:text/plain;charset=utf-8,RE%20-%20003" download="RE-003.txt">RE-003.txt</a></td>
+                                        <td><span class="estado recibido">Recibido</span></td>
+                                        <td class="izq">Sin asignar</td>
+                                        <td class="acciones">
+                                            <a href="#m-rec1" class="btn-icono" title="Ver documento" aria-label="Ver RE - 003"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,RE%20-%20003" download="RE-003.txt" class="btn-icono" title="Descargar" aria-label="Descargar RE - 003"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>RE - 002</span></td>
+                                        <td class="izq">No registrado</td>
+                                        <td>Oficio</td>
+                                        <td class="izq">Secretaría de Educación</td>
+                                        <td class="izq">Solicitud de información de la ficha</td>
+                                        <td>14/09/2026<small>09:00 a. m.</small></td>
+                                        <td>No registrado</td>
+                                        <td class="izq">No asignada</td>
+                                        <td class="izq">Katherin Sofia Cruz Diaz</td>
+                                        <td><a href="data:text/plain;charset=utf-8,RE%20-%20002" download="RE-002.txt">RE-002.txt</a></td>
+                                        <td><span class="estado tramite">En trámite</span></td>
+                                        <td class="izq">Katherin Sofia Cruz Diaz</td>
+                                        <td class="acciones">
+                                            <a href="#m-rec2" class="btn-icono" title="Ver documento" aria-label="Ver RE - 002"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,RE%20-%20002" download="RE-002.txt" class="btn-icono" title="Descargar" aria-label="Descargar RE - 002"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>RE - 001</span></td>
+                                        <td class="izq">No registrado</td>
+                                        <td>Carta</td>
+                                        <td class="izq">Empresa Servicios del Tolima S.A.S.</td>
+                                        <td class="izq">Invitación a charla de empleabilidad</td>
+                                        <td>20/02/2026<small>10:45 a. m.</small></td>
+                                        <td>No registrado</td>
+                                        <td class="izq">No asignada</td>
+                                        <td class="izq">Maria Camila Prada Yepez</td>
+                                        <td><a href="data:text/plain;charset=utf-8,RE%20-%20001" download="RE-001.txt">RE-001.txt</a></td>
+                                        <td><span class="estado respondido">Respondido</span></td>
+                                        <td class="izq">Maria Camila Prada Yepez</td>
+                                        <td class="acciones">
+                                            <a href="#m-rec3" class="btn-icono" title="Ver documento" aria-label="Ver RE - 001"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,RE%20-%20001" download="RE-001.txt" class="btn-icono" title="Descargar" aria-label="Descargar RE - 001"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pie-tabla">
+                            <input type="radio" name="pagina" id="p1" checked>
+                            <input type="radio" name="pagina" id="p2">
+                            <input type="radio" name="pagina" id="p3">
+                            <div class="pag">
+                                <span class="flecha dis prev-dis"><i class="fa-solid fa-chevron-left"></i></span>
+                                <label class="flecha prev-2" for="p1" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                                <label class="flecha prev-3" for="p2" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                                <label class="num" for="p1">1</label>
+                                <label class="num" for="p2">2</label>
+                                <label class="num" for="p3">3</label>
+                                <label class="flecha next-1" for="p2" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                                <label class="flecha next-2" for="p3" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                                <span class="flecha dis next-dis"><i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <p class="contador">
+                                <span class="t1">Mostrando 1 a 3 de 12 documentos</span>
+                                <span class="t2">Mostrando 2 a 3 de 12 documentos</span>
+                                <span class="t3">Mostrando 3 a 3 de 12 documentos</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="vista v-redactar">
+                    <!-- filtros de búsqueda -->
+                    <div class="caja caja-filtro">
+                        <h2 class="titulo-caja">Registro de comunicación recibida</h2>
+
+                        <!-- formulario -->
+                        <form id="form-registro" class="form-grid tres" action="#guardado" method="post" enctype="multipart/form-data">
+
+                            <div class="campo span2">
+                                <label for="g-entidad">Entidad de origen <span class="opcional">(opcional)</span></label>
+                                <input type="text" id="g-entidad" name="entidad" class="libre" placeholder="Empresa, institución o entidad pública o privada">
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-remitente">Nombre del remitente <span class="req">*</span></label>
+                                <input type="text" id="g-remitente" name="remitente" class="libre" placeholder="Persona que envía el documento" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-tipo">Tipo de documento <span class="req">*</span></label>
+                                <select id="g-tipo" name="tipo_documento" required>
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Oficio" selected>Oficio</option>
+                    <option value="Circular">Circular</option>
+                    <option value="Resolución">Resolución</option>
+                    <option value="Carta">Carta</option>
+                    <option value="Acta">Acta</option>
+                    <option value="Notificación">Notificación</option>
+                    <option value="Solicitud">Solicitud</option>
+                    <option value="PQRS">PQRS</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-orig">Fecha original del documento <span class="opcional">(opcional)</span></label>
+                                <input type="date" id="g-orig" name="fecha_original">
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-recep">Fecha y hora de recepción</label>
+                                <input type="text" id="g-recep" class="solo-lectura" value="Automática al registrar" readonly tabindex="-1">
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-medio">Medio de recepción</label>
+                                <select id="g-medio" name="medio_recepcion">
+                                    <option value="" selected>Seleccione una opción</option>
+                                    <option value="correo">Correo electrónico</option>
+                                    <option value="fisico">Documento físico</option>
+                                    <option value="ventanilla">Ventanilla</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-rad">Número de radicado</label>
+                                <input type="text" id="g-rad" class="solo-lectura" value="Automático (prefijo RE)" readonly tabindex="-1">
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="g-desc">Asunto <span class="req">*</span></label>
+                                <textarea id="g-desc" name="asunto" placeholder="Asunto o tema principal de la comunicación recibida" required></textarea>
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="g-archivo">Archivo adjunto <span class="req">*</span></label>
+                                <input type="file" id="g-archivo" name="adjunto" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <span class="ayuda">Documento digitalizado en PDF, JPG o PNG. Máximo 10 MB.</span>
+                            </div>
+
+                            <div class="campo span2">
+                                <label for="g-resp">Persona responsable</label>
+                                <select id="g-resp" name="responsable">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz">Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez">Maria Camila Prada Yepez</option>
+                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-asignado">Asignado a</label>
+                                <select id="g-asignado" name="asignado_a">
+                                    <option value="" selected>Sin asignar</option>
+                                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                                    <option value="Katherin Sofia Cruz Diaz">Katherin Sofia Cruz Diaz</option>
+                                    <option value="Maria Camila Prada Yepez">Maria Camila Prada Yepez</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-dependencia">Dependencia asignada</label>
+                                <select id="g-dependencia" name="dependencia">
+                                    <option value="" selected>Seleccione una opción</option>
+                                    <option value="gestion-documental">Gestión Documental</option>
+                                    <option value="talento-humano">Talento Humano</option>
+                                    <option value="formacion">Formación</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="g-estado">Estado</label>
+                                <select id="g-estado" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Recibido" selected>Recibido</option>
+                    <option value="En trámite">En trámite</option>
+                    <option value="Respondido">Respondido</option>
+                    <option value="Cerrado">Cerrado</option>
+                </select>
+                            </div>
+
+                            <div class="nota ancho">
+                                <i class="fa-solid fa-hashtag"></i>Al registrar, SOGED asigna un radicado consecutivo con prefijo <strong>RE</strong>, que la diferencia de la comunicación interna, y guarda la fecha y hora de ingreso.
+                            </div>
+                        </form>
+
+                        <div class="barra-botones">
+                            <label for="tab-entrada" class="btn-gris">Cancelar</label>
+                            <button type="submit" form="form-registro" class="btn-verde"><i class="fa-solid fa-floppy-disk"></i> Registrar</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-rec1">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado RE - 003</h3>
+        <p class="sub">Notificación sobre contrato de aprendizaje</p>
+        <dl>
+            <dt>Número de radicado</dt><dd>RE - 003</dd>
+            <dt>Fecha de recepción</dt><dd>02/10/2026, 11:20 a. m.</dd>
+            <dt>Tipo de documento</dt><dd>Notificación</dd>
+            <dt>Nombre del remitente</dt><dd>No registrado</dd>
+            <dt>Entidad de origen</dt><dd>Ministerio del Trabajo</dd>
+            <dt>Medio de recepción</dt><dd>No registrado</dd>
+            <dt>Dependencia asignada</dt><dd>No asignada</dd>
+            <dt>Persona responsable</dt><dd>Sin asignar</dd>
+            <dt>Asignado a</dt><dd>Sin asignar</dd>
+            <dt>Fecha del documento</dt><dd>01/10/2026</dd>
+            <dt>Estado</dt><dd>Recibido</dd>
+        </dl>
+        <div class="cuerpo">Se notifica información relacionada con los contratos de aprendizaje de la ficha.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,RE%20-%20003" download="RE-003.txt">RE-003.txt</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="r1">Persona responsable</label>
+                <select id="r1" name="responsable">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz">Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez">Maria Camila Prada Yepez</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="a1">Asignado a</label>
+                <select id="a1" name="asignado_a">
+                    <option value="" selected>Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz">Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez">Maria Camila Prada Yepez</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="s1">Estado</label>
+                <select id="s1" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Recibido" selected>Recibido</option>
+                    <option value="En trámite">En trámite</option>
+                    <option value="Respondido">Respondido</option>
+                    <option value="Cerrado">Cerrado</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar cambios</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-rec2">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado RE - 002</h3>
+        <p class="sub">Solicitud de información de la ficha</p>
+        <dl>
+            <dt>Número de radicado</dt><dd>RE - 002</dd>
+            <dt>Fecha de recepción</dt><dd>14/09/2026, 09:00 a. m.</dd>
+            <dt>Tipo de documento</dt><dd>Oficio</dd>
+            <dt>Nombre del remitente</dt><dd>No registrado</dd>
+            <dt>Entidad de origen</dt><dd>Secretaría de Educación</dd>
+            <dt>Medio de recepción</dt><dd>No registrado</dd>
+            <dt>Dependencia asignada</dt><dd>No asignada</dd>
+            <dt>Persona responsable</dt><dd>Katherin Sofia Cruz Diaz</dd>
+            <dt>Asignado a</dt><dd>Katherin Sofia Cruz Diaz</dd>
+            <dt>Fecha del documento</dt><dd>12/09/2026</dd>
+            <dt>Estado</dt><dd>En trámite</dd>
+        </dl>
+        <div class="cuerpo">Se solicita información sobre el número de aprendices activos y su avance.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,RE%20-%20002" download="RE-002.txt">RE-002.txt</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="r2">Persona responsable</label>
+                <select id="r2" name="responsable">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="">Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz" selected>Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez">Maria Camila Prada Yepez</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="a2">Asignado a</label>
+                <select id="a2" name="asignado_a">
+                    <option value="">Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz" selected>Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez">Maria Camila Prada Yepez</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="s2">Estado</label>
+                <select id="s2" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Recibido">Recibido</option>
+                    <option value="En trámite" selected>En trámite</option>
+                    <option value="Respondido">Respondido</option>
+                    <option value="Cerrado">Cerrado</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar cambios</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-rec3">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado RE - 001</h3>
+        <p class="sub">Invitación a charla de empleabilidad</p>
+        <dl>
+            <dt>Número de radicado</dt><dd>RE - 001</dd>
+            <dt>Fecha de recepción</dt><dd>20/02/2026, 10:45 a. m.</dd>
+            <dt>Tipo de documento</dt><dd>Carta</dd>
+            <dt>Nombre del remitente</dt><dd>No registrado</dd>
+            <dt>Entidad de origen</dt><dd>Empresa Servicios del Tolima S.A.S.</dd>
+            <dt>Medio de recepción</dt><dd>No registrado</dd>
+            <dt>Dependencia asignada</dt><dd>No asignada</dd>
+            <dt>Persona responsable</dt><dd>Maria Camila Prada Yepez</dd>
+            <dt>Asignado a</dt><dd>Maria Camila Prada Yepez</dd>
+            <dt>Fecha del documento</dt><dd>18/02/2026</dd>
+            <dt>Estado</dt><dd>Respondido</dd>
+        </dl>
+        <div class="cuerpo">Se invita a los aprendices a una charla sobre empleabilidad.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,RE%20-%20001" download="RE-001.txt">RE-001.txt</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="r3">Persona responsable</label>
+                <select id="r3" name="responsable">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="">Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz">Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez" selected>Maria Camila Prada Yepez</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="a3">Asignado a</label>
+                <select id="a3" name="asignado_a">
+                    <option value="">Sin asignar</option>
+                    <option value="Justin Kalel Ortiz Suarez">Justin Kalel Ortiz Suarez</option>
+                    <option value="Nathalia Romero Montealegre">Nathalia Romero Montealegre</option>
+                    <option value="Katherin Sofia Cruz Diaz">Katherin Sofia Cruz Diaz</option>
+                    <option value="Maria Camila Prada Yepez" selected>Maria Camila Prada Yepez</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="s3">Estado</label>
+                <select id="s3" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Recibido">Recibido</option>
+                    <option value="En trámite">En trámite</option>
+                    <option value="Respondido" selected>Respondido</option>
+                    <option value="Cerrado">Cerrado</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar cambios</button></div>
+        </form>
+    </div>
+</div>
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+<!-- aviso de confirmación -->
+<div class="aviso" id="guardado">
+    <a href="#" class="aviso-fondo" aria-label="Cerrar"></a>
+    <div class="aviso-caja" role="dialog" aria-labelledby="guardado-titulo">
+        <h2 id="guardado-titulo">Cambios guardados</h2>
+        <p>La información se guardó correctamente.</p>
+        <div class="aviso-acciones"><a href="#" class="aviso-boton">Aceptar</a></div>
+    </div>
+</div>
+</body>
+</html>

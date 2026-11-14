@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/general.css">
+    <title>Inicio | SOGED</title>
+</head>
+<body>
+
+    <!-- encabezado -->
+    <header>
+    <nav class="navbar barra-superior" aria-label="Principal">
+        <div class="logo">
+            <img src="Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="Logo del SENA">
+            <span class="linea-divisoria">|</span>
+            <img src="Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="Logo de SOGED">
+        </div>
+        <div class="menu-derecha">
+            <a href="HTML/login.html">Iniciar sesión</a>
+        </div>
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+        <!-- menú desplegable -->
+        <dialog class="drawer drawer-end" tabindex="-1" id="menuPrincipal" aria-labelledby="menuPrincipalLabel">
+            <div class="drawer-header">
+                <h2 class="drawer-title" id="menuPrincipalLabel">Menú</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+            </div>
+            <div class="drawer-body">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="HTML/login.html">Iniciar sesión</a></li>
+                </ul>
+            </div>
+        </dialog>
+    </nav>
+    </header>
+
+    <!-- contenido principal -->
+    <main class="contenido-principal">
+        <!-- texto de bienvenida -->
+        <section class="texto">
+            <h1> Tu Documentación
+                <span class="texto-verde"> Organizada sin Esfuerzo </span>
+            </h1>
+            <p> Gestiona cartas, peticiones, reclamos y otros documentos de forma rápida, organizada y accesible desde un solo lugar.</p>
+            <a href="HTML/login.html" class="btn-acceder"> Acceder al sistema</a>
+        </section>
+
+        <!-- carrusel de imágenes -->
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-autoplay="true">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="Imagenes/img.png" width="1659" height="948" class="d-block w-100" alt="Gestión documental">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="Imagenes/carrusel-documentacion.png" width="1807" height="870" loading="lazy" class="d-block w-100" alt="Documentación y oficina administrativa">
+                </div>
+                <div class="carousel-item" data-bs-interval="6000">
+                    <img src="Imagenes/carrusel-oficina-sena.png" width="1659" height="948" loading="lazy" class="d-block w-100" alt="Gestión documental en la oficina SENA">
+                </div>
+            </div>
+
+            <div class="carrusel-pie d-flex justify-content-between align-items-center">
+                <div class="carousel-indicators position-static m-0">
+                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Imagen 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Imagen 3"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- scripts de Bootstrap -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,858 @@
+/* tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* panel */
+.panel {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 28px 22px;
+    border-radius: 40px;
+    background: #fff;
+}
+
+/* cajas */
+.caja {
+    border: 1.5px solid #b9b9b9;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.caja-filtro {
+    margin-bottom: 22px;
+    padding: 14px 18px 18px;
+}
+
+/* títulos */
+.titulo-caja {
+    padding-left: 8px;
+    border-left: 4px solid #00a82d;
+    color: #000;
+    font-family: 'Fredoka', 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* tabla */
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.tabla-datos th {
+    padding: 9px 8px;
+    border-right: 2px solid #fff;
+    background: #cfcfcf;
+    color: #111;
+    font-family: 'Fredoka', 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.tabla-datos td {
+    padding: 10px 8px;
+    border: 2px solid #e9e9e9;
+    background: #fff;
+    vertical-align: middle;
+}
+
+.tabla-datos td.radicado {
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabla-datos td.radicado i {
+    margin-right: 8px;
+    color: #1b6a3a;
+    font-size: 1.25rem;
+    vertical-align: middle;
+}
+
+.tabla-datos td.radicado span {
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.tabla-datos td.izq {
+    text-align: left;
+}
+
+/* estados */
+.estado {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: .74rem;
+}
+
+/* botones */
+.btn-verde {
+    display: inline-block;
+    padding: 9px 20px;
+    border-radius: 20px;
+    background: #1db534;
+    color: #fff;
+    font-size: .85rem;
+    text-decoration: none;
+}
+
+.btn-verde:hover {
+    background: #17952a;
+}
+
+.btn-gris {
+    display: inline-block;
+    padding: 9px 22px;
+    border: none;
+    border-radius: 20px;
+    background: #d6d6d6;
+    color: #222;
+    font-family: inherit;
+    font-size: .85rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-gris:hover {
+    background: #c4c4c4;
+}
+
+/* barra superior */
+.barra-superior,
+.barra-superior-dash {
+    display: flex;
+    width: 100%;
+    min-height: 95px;
+    height: 95px;
+    margin: 0;
+    padding: 10px 5.5%;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    position: relative;
+    z-index: 10;
+}
+
+.barra-superior .logo,
+.barra-superior-dash .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.barra-superior .logo-sena,
+.barra-superior-dash .logo-sena {
+    width: 70px;
+    height: auto;
+}
+
+.barra-superior .logo-soged,
+.barra-superior-dash .logo-soged {
+    width: 190px;
+    height: auto;
+}
+
+.barra-superior .linea-divisoria,
+.barra-superior-dash .linea-divisoria {
+    display: inline-block;
+    width: 2px;
+    height: 75px;
+    background: #000;
+    font-size: 0;
+}
+
+/* contenedor */
+.contenedor-dashboard {
+    height: calc(100vh - 95px);
+}
+
+/* barra lateral */
+.sidebar {
+    width: 300px;
+    flex: 0 0 300px;
+    background: #45d048;
+    background-image: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* menú lateral */
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-lateral a,
+.btn-salir {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 30px;
+    border-left: 5px solid transparent;
+    color: #fff;
+    font-size: 1.05rem;
+    line-height: normal;
+    text-decoration: none;
+    transition: .25s;
+    white-space: normal;
+}
+
+.menu-lateral a i,
+.btn-salir i {
+    width: 26px;
+    flex: 0 0 26px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.menu-lateral a:hover,
+.menu-lateral a.activo {
+    background: rgba(0, 0, 0, .28);
+    border-left-color: #fff;
+}
+
+/* botones */
+.btn-salir {
+    border-top: 1px solid rgba(255, 255, 255, .25);
+}
+
+/* menú lateral */
+.menu-lateral a > i,
+.btn-salir > i {
+    flex-shrink: 0;
+}
+
+/* contenido */
+.contenido-dash {
+    min-width: 0;
+}
+
+/* títulos */
+.titulo-pagina {
+    font-family: 'Fredoka', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #111;
+    max-width: 1100px;
+    margin: 0 auto 18px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #000;
+    line-height: 1.25;
+}
+
+/* cajas */
+.caja-filtro > .titulo-caja {
+    margin-bottom: 14px;
+}
+
+/* filas */
+.fila-filtros {
+    row-gap: 14px;
+}
+
+/* campos */
+.campo > label {
+    line-height: 1.4;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus,
+button:focus,
+a:focus {
+    outline: 2px solid #00a82d;
+    outline-offset: 2px;
+}
+
+/* tabla */
+.tabla-wrap,
+.seccion-tabla {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* accesibilidad */
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* adaptación a pantallas */
+@media (max-width: 900px) {
+    .barra-superior,
+    .barra-superior-dash {
+        min-height: 95px;
+        height: auto;
+        padding: 10px 5.5%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .contenedor-dashboard {
+        height: auto;
+        min-height: calc(100vh - 95px);
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-basis: auto;
+        padding: 10px 0;
+    }
+
+    .menu-lateral {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-lateral a,
+    .btn-salir {
+        width: auto;
+        padding: 14px 20px;
+    }
+
+    .perfil-usuario {
+        gap: 8px;
+    }
+
+    .info-usuario .nombre {
+        font-size: .9rem;
+    }
+
+    .info-usuario .rol {
+        font-size: .75rem;
+    }
+
+    .icono-perfil {
+        font-size: 34px;
+    }
+
+    .icono-campana {
+        font-size: 19px;
+        margin-left: 0;
+    }
+
+    .contenido-dash {
+        padding: 20px 14px;
+        overflow: visible;
+    }
+
+    .panel {
+        width: 100%;
+        max-width: none;
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .titulo-pagina {
+        margin-bottom: 14px;
+        font-size: 1.3rem;
+    }
+
+    .fila-filtros {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+        gap: 12px;
+    }
+
+    .fila-filtros .campo,
+    .campo-buscar,
+    .campo-tipo,
+    .campo-radicado,
+    .campo-doc,
+    .campo-fecha,
+    .campo-estado {
+        width: 100%;
+    }
+
+    .form-grid,
+    .form-grid.tres {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid .ancho,
+    .form-grid .span2,
+    .form-grid .campo[style] {
+        grid-column: 1 / -1 !important;
+    }
+
+    .fila-form {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .tabla-wrap,
+    .seccion-tabla {
+        overflow-x: auto;
+    }
+
+    .tabla-datos {
+        min-width: 640px;
+    }
+
+    .tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .tab {
+        flex-shrink: 0;
+    }
+}
+
+/* adaptación a pantallas */
+@media (max-width: 760px) {
+    .barra-superior,
+    .barra-superior-dash {
+        padding: 10px 16px;
+    }
+
+    .barra-superior .logo,
+    .barra-superior-dash .logo {
+        gap: 10px;
+    }
+
+    .barra-superior .logo-sena,
+    .barra-superior-dash .logo-sena {
+        width: 54px;
+    }
+
+    .barra-superior .logo-soged,
+    .barra-superior-dash .logo-soged {
+        width: auto;
+        max-width: 145px;
+        height: auto;
+    }
+
+    .barra-superior .linea-divisoria,
+    .barra-superior-dash .linea-divisoria {
+        height: 42px;
+    }
+
+    .menu-lateral a,
+    .btn-salir {
+        padding: 10px 14px;
+        font-size: .88rem;
+        white-space: normal;
+    }
+
+    .menu-lateral a i,
+    .btn-salir i {
+        flex-basis: 22px;
+        font-size: 1.05rem;
+    }
+}
+
+/* página */
+.pagina-dash .perfil-usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pagina-dash .info-usuario {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.pagina-dash .info-usuario .nombre {
+    font-size: 1.15rem;
+    color: #111;
+}
+
+.pagina-dash .info-usuario .rol {
+    font-size: .9rem;
+    color: #aaa;
+}
+
+.pagina-dash .icono-perfil {
+    font-size: 45px;
+    color: #e0e0e0;
+}
+
+.pagina-dash .icono-campana {
+    margin-left: 6px;
+    font-size: 24px;
+    color: #222;
+    cursor: pointer;
+}
+
+.pagina-dash .contenedor-dashboard {
+    display: flex;
+    height: calc(100vh - 95px);
+}
+
+.pagina-dash .sidebar {
+    overflow-y: auto;
+}
+
+.pagina-dash .contenido-dash {
+    flex: 1;
+    min-width: 0;
+    padding: 40px 45px;
+    overflow-y: auto;
+    background: #ebebeb;
+}
+
+/* adaptación a pantallas */
+@media (max-width: 900px) {
+    .pagina-dash .contenedor-dashboard {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 95px);
+    }
+
+    .pagina-dash .sidebar {
+        overflow-y: visible;
+    }
+
+    .pagina-dash .contenido-dash {
+        padding: 20px 14px;
+        overflow: visible;
+    }
+}
+
+/* navegación */
+.navbar-toggler {
+    padding: 8px;
+    border: 0;
+    background: transparent;
+    color: #222;
+}
+
+/* menú lateral */
+.menu-drawer {
+    background: #45d048;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-drawer .drawer-header { padding: 16px 30px; }
+.menu-drawer .drawer-title { color: #fff; font-weight: 700; }
+.menu-drawer .btn-close { color: #fff; }
+
+.menu-drawer .drawer-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0 24px;
+}
+
+.menu-drawer .menu-lateral { flex-direction: column; }
+.menu-drawer .menu-lateral a,
+.menu-drawer .btn-salir { white-space: normal; }
+.menu-drawer :focus { outline-color: #fff; }
+
+/* barra superior */
+.barra-superior-dash .logo,
+.barra-superior .logo { min-width: 0; }
+
+/* adaptación a pantallas */
+@media (max-width: 1023.98px) {
+    .contenedor-dashboard > .sidebar { display: none; }
+    .contenedor-dashboard { height: auto; min-height: calc(100vh - 95px); }
+    .contenido-dash { overflow: visible; }
+}
+
+/* adaptación a pantallas */
+@media (min-width: 1024px) {
+    .navbar-toggler { display: none; }
+}
+
+/* barra superior */
+.barra-superior .navbar-toggler { display: none; }
+
+/* adaptación a pantallas */
+@media (max-width: 767.98px) {
+    .barra-superior .menu-derecha { display: none; }
+    .barra-superior .navbar-toggler { display: inline-flex; }
+}
+
+/* columnas */
+.span2 { grid-column: span 2; }
+
+/* campos */
+.campo input:disabled { background-color: #f0f0f0; cursor: not-allowed; }
+
+/* adaptación a pantallas */
+@media (max-width: 900px) { .span2 { grid-column: 1 / -1; } }
+
+/* base */
+:root { color-scheme: light; }
+
+/* perfil de usuario */
+.perfil-enlace {
+    display: inline-flex;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* notificaciones */
+.notification-menu {
+    display: inline-block;
+}
+
+.notification-bell {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 6px;
+    border-radius: 50%;
+    color: inherit;
+    list-style: none;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.notification-bell:hover,
+.notification-menu[open] > .notification-bell {
+    background: rgba(0, 168, 45, .12);
+}
+
+.notification-bell .icono-campana {
+    margin-left: 0;
+}
+
+.notification-count {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: #d62828;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+}
+
+.notification-panel {
+    position: fixed;
+    top: 88px;
+    right: 8px;
+    z-index: 1100;
+    width: 360px;
+    max-width: 94vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #d9d9d9;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .18);
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+}
+
+.notification-panel h2 {
+    margin: 0;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e6e6e6;
+    font-family: 'Fredoka', 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.notification-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.notification-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 16px 12px 22px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #222;
+    text-decoration: none;
+}
+
+.notification-item:hover {
+    background: #f4faf5;
+}
+
+.notification-item strong {
+    font-size: .85rem;
+}
+
+.notification-item span {
+    font-size: .8rem;
+    color: #555;
+}
+
+.notification-item small {
+    font-size: .72rem;
+    color: #888;
+}
+
+.notification-item.unread {
+    background: #f0f9f2;
+}
+
+.notification-item.unread::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00a82d;
+}
+
+/* avisos */
+.aviso {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, .5);
+}
+
+.aviso:target {
+    display: flex;
+}
+
+.aviso-fondo {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.aviso-caja {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%; max-width: 440px;
+    padding: 28px 30px;
+    border-radius: 20px;
+    background: #fff;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
+}
+
+.aviso-caja h2 {
+    margin: 0;
+    font-family: 'Fredoka', 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.aviso-caja p {
+    margin: 0 0 8px;
+    font-size: .85rem;
+    color: #555;
+}
+
+.aviso-caja label {
+    margin-top: 6px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.aviso-caja input {
+    padding: 10px 14px;
+    border: 1.5px solid #b9b9b9;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: .9rem;
+}
+
+.aviso-caja input:focus {
+    border-color: #00a82d;
+    outline: 0;
+}
+
+.aviso-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.aviso-boton {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 20px;
+    background: #1db534;
+    color: #fff;
+    font-family: inherit;
+    font-size: .85rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.aviso-boton:hover {
+    background: #17952a;
+    color: #fff;
+}
+
+.aviso-gris {
+    background: #d6d6d6;
+    color: #222;
+}
+
+.aviso-gris:hover {
+    background: #c4c4c4;
+    color: #222;
+}
+
+/* textos */
+.texto-olvido a:hover {
+    text-decoration: underline;
+}
+
+/* tabla */
+.tabla-datos tbody tr:hover td {
+    background: #f6fbf7;
+}
+
+/* botones */
+.btn-verde,
+.btn-gris,
+.btn-buscar {
+    cursor: pointer;
+    transition: background-color .2s, box-shadow .2s;
+}
+
+.btn-verde:hover {
+    box-shadow: 0 3px 10px rgba(0, 168, 45, .3);
+}

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correspondencia despachada | SOGED</title>
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+    <link rel="stylesheet" href="../CSS/comunicaciones_despachadas.css">
+</head>
+<body class="pagina-dash">
+
+<!-- encabezado -->
+<header>
+<nav class="navbar barra-superior-dash" aria-label="Barra superior">
+    <div class="logo">
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuLateralOculto" aria-controls="menuLateralOculto" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="SENA">
+        <span class="linea-divisoria">|</span>
+        <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="SOGED">
+    </div>
+
+    <!-- datos del usuario -->
+    <div class="perfil-usuario">
+        <div class="info-usuario d-none sm:d-flex">
+            <span class="nombre">Hola, Juan Perez</span>
+            <span class="rol">Administrador Principal</span>
+        </div>
+        <a href="configuracion.html" class="perfil-enlace" aria-label="Configuración de la cuenta"><i class="fa-solid fa-circle-user icono-perfil"></i></a>
+        <!-- campana de notificaciones -->
+        <details class="notification-menu">
+            <summary class="notification-bell" aria-label="Notificaciones, 3 sin leer"><i class="fa-regular fa-bell icono-campana"></i><span class="notification-count">3</span></summary>
+            <div class="notification-panel">
+                <h2>Notificaciones</h2>
+                <ul class="notification-list">
+                    <li><a class="notification-item unread" href="comunicaciones_recibida.html"><strong>Nuevo radicado recibido</strong><span>RE - 003 · Ministerio del Trabajo</span><small>Hace 10 min</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_internas.html"><strong>Memorando interno pendiente</strong><span>CI - 012 · Entrega de evidencia guía 3</span><small>Hace 1 hora</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_despachada.html"><strong>Comunicación despachada</strong><span>Se confirmó la entrega de un oficio</span><small>Hace 3 horas</small></a></li>
+                    <li><a class="notification-item" href="reportes.html"><strong>Reporte generado</strong><span>El reporte mensual está disponible</span><small>Ayer</small></a></li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- menú -->
+    <dialog class="drawer drawer-start menu-drawer" tabindex="-1" id="menuLateralOculto" aria-labelledby="menuLateralOcultoLabel">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="menuLateralOcultoLabel">Menú</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="drawer-body">
+            <nav class="menu-lateral" aria-label="Menú principal">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html" class="activo" aria-current="page"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+            <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+    </dialog>
+</nav>
+</header>
+
+<div class="contenedor-dashboard">
+
+    <aside class="sidebar">
+        <nav class="menu-lateral">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html" class="activo" aria-current="page"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+
+        <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="contenido-dash">
+        <h1 class="titulo-pagina">Correspondencia despachada</h1>
+
+        <div class="panel modulo">
+
+            <input type="radio" name="vista" id="tab-entrada" checked>
+            <input type="radio" name="vista" id="tab-redactar">
+
+            <div class="tabs">
+                <label class="tab" for="tab-entrada"><i class="fa-solid fa-clock-rotate-left"></i> Historial de despachados</label>
+                <label class="tab" for="tab-redactar"><i class="fa-regular fa-paper-plane"></i> Despachar comunicación</label>
+            </div>
+
+            <div class="vistas">
+
+                <section class="vista v-entrada">
+
+                    <!-- filtros de búsqueda -->
+                    <div class="caja caja-filtro">
+                        <h2 class="titulo-caja">Filtro de busqueda</h2>
+                        <form class="fila-filtros" action="#" method="get">
+                            <div class="campo campo-buscar">
+                                <label for="b-texto">Radicado, destinatario o asunto</label>
+                                <input type="search" id="b-texto" name="q" class="libre" placeholder="Ej: RD - 001" autocomplete="off">
+                            </div>
+                            <div class="campo campo-doc">
+                                <label for="b-tipo">Tipo de documento</label>
+                                <select id="b-tipo" name="tipo_documento">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Todos</option>
+                    <option value="Oficio">Oficio</option>
+                    <option value="Carta">Carta</option>
+                    <option value="Circular">Circular</option>
+                    <option value="Resolución">Resolución</option>
+                    <option value="Notificación">Notificación</option>
+                    <option value="Respuesta">Respuesta</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                            </div>
+                            <div class="campo campo-fecha">
+                                <label for="b-ini">Fecha Inicial</label>
+                                <input type="date" id="b-ini" name="fecha_inicial">
+                            </div>
+                            <div class="campo campo-fecha">
+                                <label for="b-fin">Fecha final</label>
+                                <input type="date" id="b-fin" name="fecha_final">
+                            </div>
+                            <div class="campo campo-estado">
+                                <label for="b-estado">Estado</label>
+                                <select id="b-estado" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Todos los estados</option>
+                    <option value="Enviado">Enviado</option>
+                    <option value="Entregado">Entregado</option>
+                    <option value="Devuelto">Devuelto</option>
+                </select>
+                            </div>
+                            <button type="submit" class="btn-buscar" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- tabla de resultados -->
+                    <div class="caja caja-tabla">
+                        <h2 class="titulo-caja">Comunicaciones despachadas</h2>
+                        <div class="tabla-wrap">
+                            <table class="tabla-datos">
+                                <thead>
+                                    <tr>
+                                        <th>Radicado</th>
+                                        <th>Tipo de documento</th>
+                                        <th>Destinatario</th>
+                                        <th>Asunto</th>
+                                        <th>Fecha de envío</th>
+                                        <th>Medio</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>RD - 003</span></td>
+                                        <td>Oficio</td>
+                                        <td class="izq"><strong>Laura Gómez Pardo</strong><span class="entidad">Secretaría de Educación</span></td>
+                                        <td class="izq">Respuesta a solicitud de información de la ficha</td>
+                                        <td>03/10/2026<small>04:10 p. m.</small></td>
+                                        <td>Correo electrónico</td>
+                                        <td><span class="estado enviado">Enviado</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-des1" class="btn-icono" title="Ver documento" aria-label="Ver RD - 003"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,RD%20-%20003" download="RD-003.txt" class="btn-icono" title="Descargar" aria-label="Descargar RD - 003"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>RD - 002</span></td>
+                                        <td>Oficio</td>
+                                        <td class="izq"><strong>Ana María Torres</strong><span class="entidad">Alcaldía de Ibagué</span></td>
+                                        <td class="izq">Solicitud de espacio para actividad de formación</td>
+                                        <td>18/09/2026<small>10:30 a. m.</small></td>
+                                        <td>Entrega física</td>
+                                        <td><span class="estado devuelto">Devuelto</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-des2" class="btn-icono" title="Ver documento" aria-label="Ver RD - 002"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,RD%20-%20002" download="RD-002.txt" class="btn-icono" title="Descargar" aria-label="Descargar RD - 002"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radicado"><i class="fa-regular fa-file-lines"></i><span>RD - 001</span></td>
+                                        <td>Carta</td>
+                                        <td class="izq"><strong>Carlos Ramírez</strong><span class="entidad">Empresa Servicios del Tolima S.A.S.</span></td>
+                                        <td class="izq">Confirmación de asistencia a charla de empleabilidad</td>
+                                        <td>22/02/2026<small>02:15 p. m.</small></td>
+                                        <td>Entrega física</td>
+                                        <td><span class="estado respondido">Entregado</span></td>
+                                        <td class="acciones">
+                                            <a href="#m-des3" class="btn-icono" title="Ver documento" aria-label="Ver RD - 001"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="data:text/plain;charset=utf-8,RD%20-%20001" download="RD-001.txt" class="btn-icono" title="Descargar" aria-label="Descargar RD - 001"><i class="fa-solid fa-download"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pie-tabla">
+                            <input type="radio" name="pagina" id="p1" checked>
+                            <input type="radio" name="pagina" id="p2">
+                            <input type="radio" name="pagina" id="p3">
+                            <div class="pag">
+                                <span class="flecha dis prev-dis"><i class="fa-solid fa-chevron-left"></i></span>
+                                <label class="flecha prev-2" for="p1" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                                <label class="flecha prev-3" for="p2" aria-label="Página anterior"><i class="fa-solid fa-chevron-left"></i></label>
+                                <label class="num" for="p1">1</label>
+                                <label class="num" for="p2">2</label>
+                                <label class="num" for="p3">3</label>
+                                <label class="flecha next-1" for="p2" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                                <label class="flecha next-2" for="p3" aria-label="Página siguiente"><i class="fa-solid fa-chevron-right"></i></label>
+                                <span class="flecha dis next-dis"><i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <p class="contador">
+                                <span class="t1">Mostrando 1 a 3 de 12 documentos</span>
+                                <span class="t2">Mostrando 2 a 3 de 12 documentos</span>
+                                <span class="t3">Mostrando 3 a 3 de 12 documentos</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="vista v-redactar">
+                    <!-- filtros de búsqueda -->
+                    <div class="caja caja-filtro">
+                        <h2 class="titulo-caja">Nueva comunicación despachada</h2>
+
+                        <!-- formulario -->
+                        <form id="form-despacho" class="form-grid tres" action="#guardado" method="post" enctype="multipart/form-data">
+
+                            <h3 class="subtitulo">Destinatario externo</h3>
+
+                            <div class="campo span2">
+                                <label for="d-nombre">Nombre completo <span class="req">*</span></label>
+                                <input type="text" id="d-nombre" name="nombre" class="libre" placeholder="Persona natural o representante de la entidad" required>
+                            </div>
+                            <div class="campo">
+                                <label for="d-tipoid">Tipo de identificación <span class="req">*</span></label>
+                                <select id="d-tipoid" name="tipo_identificacion" required>
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="C.C." selected>C.C.</option>
+                    <option value="NIT">NIT</option>
+                    <option value="C.E.">C.E.</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="T.I.">T.I.</option>
+                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="d-numid">Número de identificación <span class="req">*</span></label>
+                                <input type="text" id="d-numid" name="numero_identificacion" class="libre" inputmode="numeric" required>
+                            </div>
+                            <div class="campo">
+                                <label for="d-mail">Correo electrónico <span class="req">*</span></label>
+                                <input type="email" id="d-mail" name="correo" class="libre" placeholder="nombre@dominio.com" required>
+                            </div>
+                            <div class="campo">
+                                <label for="d-tel">Teléfono</label>
+                                <input type="tel" id="d-tel" name="telefono" class="libre" inputmode="tel">
+                            </div>
+
+                            <div class="campo">
+                                <label for="d-ent">Entidad a la que pertenece</label>
+                                <input type="text" id="d-ent" name="entidad" class="libre" placeholder="Empresa o institución">
+                            </div>
+                            <div class="campo span2">
+                                <label for="d-dir">Dirección física</label>
+                                <input type="text" id="d-dir" name="direccion" class="libre" placeholder="Calle, carrera, barrio y ciudad">
+                            </div>
+
+                            <h3 class="subtitulo">Comunicación</h3>
+
+                            <div class="campo">
+                                <label for="d-tipo">Tipo de documento <span class="req">*</span></label>
+                                <select id="d-tipo" name="tipo_documento" required>
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Oficio" selected>Oficio</option>
+                    <option value="Carta">Carta</option>
+                    <option value="Circular">Circular</option>
+                    <option value="Resolución">Resolución</option>
+                    <option value="Notificación">Notificación</option>
+                    <option value="Respuesta">Respuesta</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                            </div>
+                            <div class="campo">
+                                <label for="d-medio">Medio de envío <span class="req">*</span></label>
+                                <select id="d-medio" name="medio" required>
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Correo electrónico" selected>Correo electrónico</option>
+                    <option value="Entrega física">Entrega física</option>
+                </select>
+                            </div>
+                            <div class="campo">
+                                <label for="d-resp">En respuesta a <span class="opcional">(opcional)</span></label>
+                                <select id="d-resp" name="respuesta_a">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="" selected>Ninguno (comunicación nueva)</option>
+                    <option value="RE - 003">RE - 003 · Ministerio del Trabajo</option>
+                    <option value="RE - 002">RE - 002 · Secretaría de Educación</option>
+                    <option value="RE - 001">RE - 001 · Empresa Servicios del Tolima</option>
+                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="d-fecha">Fecha y hora de envío</label>
+                                <input type="text" id="d-fecha" class="solo-lectura" value="Automática al despachar" readonly tabindex="-1">
+                            </div>
+                            <div class="campo">
+                                <label for="d-rad">Número de radicado de salida</label>
+                                <input type="text" id="d-rad" class="solo-lectura" value="Automático (prefijo RD)" readonly tabindex="-1">
+                            </div>
+                            <div class="campo">
+                                <label for="d-est">Estado inicial</label>
+                                <input type="text" id="d-est" class="solo-lectura" value="Enviado" readonly tabindex="-1">
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="d-desc">Asunto y descripción <span class="req">*</span></label>
+                                <textarea id="d-desc" name="descripcion" placeholder="Resume el propósito o tema principal de la comunicación" required></textarea>
+                            </div>
+
+                            <div class="campo ancho">
+                                <label for="d-archivo">Archivo adjunto <span class="req">*</span></label>
+                                <input type="file" id="d-archivo" name="adjunto" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                                <span class="ayuda">PDF, JPG, PNG o Word. Máximo 10 MB.</span>
+                            </div>
+
+                            <div class="nota ancho">
+                                <i class="fa-solid fa-hashtag"></i>Al despachar, SOGED asigna un radicado consecutivo con prefijo <strong>RD</strong>, registra la fecha y hora de envío y guarda la comunicación en el historial.
+                            </div>
+                        </form>
+
+                        <div class="barra-botones">
+                            <label for="tab-entrada" class="btn-gris">Cancelar</label>
+                            <button type="submit" form="form-despacho" class="btn-verde"><i class="fa-regular fa-paper-plane"></i> Despachar</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-des1">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado RD - 003</h3>
+        <p class="sub">Respuesta a solicitud de información de la ficha</p>
+        <dl>
+            <dt>Destinatario</dt><dd>Laura Gómez Pardo</dd>
+            <dt>Entidad</dt><dd>Secretaría de Educación</dd>
+            <dt>Identificación</dt><dd>C.C. 38.456.120</dd>
+            <dt>Correo electrónico</dt><dd>lgomez@educacion.gov.example</dd>
+            <dt>Teléfono</dt><dd>3101234567</dd>
+            <dt>Dirección</dt><dd>Cra. 3 # 10-25, Ibagué</dd>
+            <dt>Tipo de documento</dt><dd>Oficio</dd>
+            <dt>Medio de envío</dt><dd>Correo electrónico</dd>
+            <dt>Enviado</dt><dd>03/10/2026, 04:10 p. m.</dd>
+            <dt>En respuesta a</dt><dd>RE - 002</dd>
+        </dl>
+        <div class="cuerpo">Se da respuesta a la solicitud de información sobre el número de aprendices activos de la ficha.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,RD%20-%20003" download="RD-003.txt">RD-003.pdf</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="s1">Estado del envío</label>
+                <select id="s1" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Enviado" selected>Enviado</option>
+                    <option value="Entregado">Entregado</option>
+                    <option value="Devuelto">Devuelto</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar estado</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-des2">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado RD - 002</h3>
+        <p class="sub">Solicitud de espacio para actividad de formación</p>
+        <dl>
+            <dt>Destinatario</dt><dd>Ana María Torres</dd>
+            <dt>Entidad</dt><dd>Alcaldía de Ibagué</dd>
+            <dt>Identificación</dt><dd>C.C. 65.789.004</dd>
+            <dt>Correo electrónico</dt><dd>atorres@alcaldia.example</dd>
+            <dt>Teléfono</dt><dd>3209876543</dd>
+            <dt>Dirección</dt><dd>Calle 9 # 2-40, Ibagué</dd>
+            <dt>Tipo de documento</dt><dd>Oficio</dd>
+            <dt>Medio de envío</dt><dd>Entrega física</dd>
+            <dt>Enviado</dt><dd>18/09/2026, 10:30 a. m.</dd>
+            <dt>En respuesta a</dt><dd>Comunicación nueva</dd>
+        </dl>
+        <div class="cuerpo">Se solicita un espacio para realizar una actividad de formación con los aprendices. Devuelto: dirección incorrecta.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,RD%20-%20002" download="RD-002.txt">RD-002.pdf</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="s2">Estado del envío</label>
+                <select id="s2" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Enviado">Enviado</option>
+                    <option value="Entregado">Entregado</option>
+                    <option value="Devuelto" selected>Devuelto</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar estado</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- ventana emergente -->
+<div class="modal" id="m-des3">
+    <a href="#" class="modal-fondo" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <a href="#" class="modal-cerrar" aria-label="Cerrar">&times;</a>
+        <h3>Radicado RD - 001</h3>
+        <p class="sub">Confirmación de asistencia a charla de empleabilidad</p>
+        <dl>
+            <dt>Destinatario</dt><dd>Carlos Ramírez</dd>
+            <dt>Entidad</dt><dd>Empresa Servicios del Tolima S.A.S.</dd>
+            <dt>Identificación</dt><dd>NIT 900.123.456-7</dd>
+            <dt>Correo electrónico</dt><dd>contacto@serviciostolima.example</dd>
+            <dt>Teléfono</dt><dd>6012345678</dd>
+            <dt>Dirección</dt><dd>Av. Ambalá # 45-12, Ibagué</dd>
+            <dt>Tipo de documento</dt><dd>Carta</dd>
+            <dt>Medio de envío</dt><dd>Entrega física</dd>
+            <dt>Enviado</dt><dd>22/02/2026, 02:15 p. m.</dd>
+            <dt>En respuesta a</dt><dd>RE - 001</dd>
+        </dl>
+        <div class="cuerpo">Se confirma la asistencia de los aprendices a la charla de empleabilidad.</div>
+        <p class="adjunto"><i class="fa-solid fa-paperclip"></i> <a href="data:text/plain;charset=utf-8,RD%20-%20001" download="RD-001.txt">RD-001.pdf</a></p>
+        <form action="#guardado" method="post">
+            <div class="campo">
+                <label for="s3">Estado del envío</label>
+                <select id="s3" name="estado">
+
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="Enviado">Enviado</option>
+                    <option value="Entregado" selected>Entregado</option>
+                    <option value="Devuelto">Devuelto</option>
+                </select>
+            </div>
+            <div class="modal-acciones"><button type="submit" class="btn-verde">Guardar estado</button></div>
+        </form>
+    </div>
+</div>
+
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+<!-- aviso de confirmación -->
+<div class="aviso" id="guardado">
+    <a href="#" class="aviso-fondo" aria-label="Cerrar"></a>
+    <div class="aviso-caja" role="dialog" aria-labelledby="guardado-titulo">
+        <h2 id="guardado-titulo">Cambios guardados</h2>
+        <p>La información se guardó correctamente.</p>
+        <div class="aviso-acciones"><a href="#" class="aviso-boton">Aceptar</a></div>
+    </div>
+</div>
+</body>
+</html>

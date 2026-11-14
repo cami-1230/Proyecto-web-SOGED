@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración | SOGED</title>
+    <!-- estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../CSS/configuraciones.css">
+    <link rel="stylesheet" href="../CSS/general.css">
+</head>
+<body>
+
+<!-- encabezado -->
+<header>
+<nav class="navbar barra-superior-dash" aria-label="Barra superior">
+    <div class="logo">
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#menuLateralOculto" aria-controls="menuLateralOculto" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <img src="../Imagenes/logosena.png" class="logo-sena" width="70" height="64" alt="SENA">
+        <span class="linea-divisoria">|</span>
+        <img src="../Imagenes/logo_soged.png" class="logo-soged" width="190" height="88" alt="SOGED">
+    </div>
+
+    <!-- datos del usuario -->
+    <div class="perfil-usuario">
+        <div class="info-usuario d-none sm:d-flex">
+            <span class="nombre">Hola, Juan Perez</span>
+            <span class="rol">Administrador Principal</span>
+        </div>
+        <a href="configuracion.html" class="perfil-enlace" aria-label="Configuración de la cuenta"><i class="fa-solid fa-circle-user icono-perfil"></i></a>
+        <!-- campana de notificaciones -->
+        <details class="notification-menu">
+            <summary class="notification-bell" aria-label="Notificaciones, 3 sin leer"><i class="fa-regular fa-bell icono-campana"></i><span class="notification-count">3</span></summary>
+            <div class="notification-panel">
+                <h2>Notificaciones</h2>
+                <ul class="notification-list">
+                    <li><a class="notification-item unread" href="comunicaciones_recibida.html"><strong>Nuevo radicado recibido</strong><span>RE - 003 · Ministerio del Trabajo</span><small>Hace 10 min</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_internas.html"><strong>Memorando interno pendiente</strong><span>CI - 012 · Entrega de evidencia guía 3</span><small>Hace 1 hora</small></a></li>
+                    <li><a class="notification-item unread" href="comunicaciones_despachada.html"><strong>Comunicación despachada</strong><span>Se confirmó la entrega de un oficio</span><small>Hace 3 horas</small></a></li>
+                    <li><a class="notification-item" href="reportes.html"><strong>Reporte generado</strong><span>El reporte mensual está disponible</span><small>Ayer</small></a></li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- menú  -->
+    <dialog class="drawer drawer-start menu-drawer" tabindex="-1" id="menuLateralOculto" aria-labelledby="menuLateralOcultoLabel">
+        <div class="drawer-header">
+            <h2 class="drawer-title" id="menuLateralOcultoLabel">Menú</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="drawer-body">
+            <nav class="menu-lateral" aria-label="Menú principal">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html" class="activo" aria-current="page"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+            <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+    </dialog>
+</nav>
+</header>
+
+<div class="contenedor-dashboard">
+
+    <!-- barra lateral -->
+    <aside class="sidebar">
+        <nav class="menu-lateral">
+            <a href="perfil-admin.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="comunicaciones_internas.html"><i class="fa-solid fa-folder-open"></i> Comunicaciones internas</a>
+            <a href="comunicaciones_recibida.html"><i class="fa-solid fa-envelope"></i> Comunicaciones recibidas</a>
+            <a href="comunicaciones_despachada.html"><i class="fa-solid fa-paper-plane"></i> Comunicaciones despachadas</a>
+            <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+            <a href="usuarios.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+            <a href="configuracion.html" class="activo" aria-current="page"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </nav>
+
+        <a href="../index.html" class="btn-salir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="contenido-dash">
+        <h1 class="titulo-pagina">Configuración</h1>
+        <div class="panel">
+
+            <div class="caja caja-titulo-seccion">
+                <h2 class="titulo-caja"><i class="fa-solid fa-gear"></i> Configuración del Sistema</h2>
+                <p class="subtitulo-seccion">Personaliza las opciones generales, el idioma y las preferencias de tu cuenta en SOGED.</p>
+            </div>
+
+            <!-- bloque de configuración -->
+            <section class="caja caja-config">
+                <h3 class="titulo-caja"><i class="fa-solid fa-language"></i> Idioma y Región</h3>
+                <form class="formulario-config" action="configuracion.html#guardado" method="get">
+                    <div class="fila-form">
+                        <div class="campo">
+                            <label for="idioma">Idioma de la Interfaz</label>
+                            <select id="idioma" name="idioma">
+                                <option value="es" selected>Español (Colombia)</option>
+                                <option value="en">English (US)</option>
+                                <option value="pt">Português (Brasil)</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="zona-horaria">Zona Horaria</label>
+                            <select id="zona-horaria" name="zona_horaria">
+                                <option value="bogota" selected>(GMT-5) Bogotá, Lima, Quito</option>
+                                <option value="mexico">(GMT-6) Ciudad de México</option>
+                                <option value="buenos_aires">(GMT-3) Buenos Aires</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contenedor-boton">
+                        <button type="submit" class="btn-verde">Guardar Preferencias</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- bloque de configuración -->
+            <section class="caja caja-config">
+                <h3 class="titulo-caja"><i class="fa-solid fa-user-pen"></i> Opciones de Cuenta</h3>
+                <form class="formulario-config" action="configuracion.html#guardado" method="get">
+                    <div class="fila-form">
+                        <div class="campo">
+                            <label for="nombre-usuario">Nombre Completo</label>
+                            <input type="text" id="nombre-usuario" value="Juan Perez">
+                        </div>
+                        <div class="campo">
+                            <label for="correo-usuario">Correo Electrónico Institucional</label>
+                            <input type="email" id="correo-usuario" value="jperez@sena.edu.co">
+                        </div>
+                    </div>
+                    <div class="fila-form">
+                        <div class="campo">
+                            <label for="rol-sistema">Rol Asignado</label>
+                            <input type="text" id="rol-sistema" value="Administrador Principal" disabled>
+                        </div>
+                        <div class="campo">
+                            <label for="dependencia">Dependencia / Oficina</label>
+                            <input type="text" id="dependencia" value="Centro de Comercio y Servicios">
+                        </div>
+                    </div>
+                    <div class="contenedor-boton">
+                        <button type="submit" class="btn-verde">Actualizar Datos</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- bloque de configuración -->
+            <section class="caja caja-config">
+                <h3 class="titulo-caja"><i class="fa-solid fa-bell"></i> Notificaciones y Sistema</h3>
+                <div class="lista-preferencias">
+                    <label class="opcion-toggle">
+                        <input type="checkbox" checked>
+                        <span class="texto-toggle">Recibir notificaciones por correo electrónico al radicar un nuevo documento</span>
+                    </label>
+                    <label class="opcion-toggle">
+                        <input type="checkbox" checked>
+                        <span class="texto-toggle">Emitir alerta sonora en pantalla al recibir correspondencia urgente</span>
+                    </label>
+                    <label class="opcion-toggle">
+                        <input type="checkbox">
+                        <span class="texto-toggle">Modo de alto contraste para accesibilidad visual</span>
+                    </label>
+                    <label class="opcion-toggle">
+                        <input type="checkbox" checked>
+                        <span class="texto-toggle">Guardar historial de búsqueda reciente en la barra superior</span>
+                    </label>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+    <!-- scripts de Bootstrap -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+<!-- aviso de confirmación -->
+<div class="aviso" id="guardado">
+    <a href="#" class="aviso-fondo" aria-label="Cerrar"></a>
+    <div class="aviso-caja" role="dialog" aria-labelledby="guardado-titulo">
+        <h2 id="guardado-titulo">Cambios guardados</h2>
+        <p>Tu información se guardó correctamente.</p>
+        <div class="aviso-acciones"><a href="#" class="aviso-boton">Aceptar</a></div>
+    </div>
+</div>
+</body>
+</html>
